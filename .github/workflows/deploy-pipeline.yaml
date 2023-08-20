@@ -46,11 +46,10 @@ jobs:
           path: ${{ github.sha }}.zip
 
   publish:
-    needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
     - name: Create release
       id: create_release
       uses: actions/create-release@v1
